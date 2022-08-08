@@ -54,6 +54,8 @@ hot_accounts_writable = {}
 hot_programs = {}
 hot_signers = {}
 programs_seen = []
+# slots_seen = []
+heavy_programs = {}
 
 i = 0
 File.foreach(input_file) do |line|
@@ -97,6 +99,9 @@ File.foreach(input_file) do |line|
     end
   end
 
+  slot_stats[tx.slot] = {} if slot_stats[tx.slot].nil?
+  slot_stats[tx.slot][:tx_cost] = 0 if slot_stats[tx.slot][:tx_cost].nil?
+  slot_stats[tx.slot][:tx_cost] += tx.tx_cost.strip.to_i
   # Write out the slot_stats
   # puts tx.instructions.inspect
   # puts slot_stats.inspect
@@ -133,5 +138,10 @@ puts ''
 puts "HOT PROGRAMS:"
 hot_programs.sort_by(&:last).reverse[0..29].to_h.each do |k,v|
   puts "#{k.ljust(44, ' ')} => #{v}"
+end
+puts ''
+puts 'SLOT STATS:'
+slot_stats.each do |ss|
+  puts ss.inspect
 end
 puts ''
