@@ -1,2 +1,3 @@
 # Ignore uncompressed txt files
 *.txt
+*.zip
