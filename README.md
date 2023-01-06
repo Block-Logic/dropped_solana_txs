@@ -3,7 +3,7 @@ This contains log file data of Solana transactions dropped from my validator. I 
 
 Each TX was dropped because it  `WouldExceedBlockMaxLimit` or `WouldExceedAccountMaxLimit` in the current block. You can will see the "hot accounts" & "hot programs" in these files.
 
-Between Jan 5-6, 2023, Block Logic dropped 20,891 transactions. 12,209 were dropped for WouldExceedBlockMaxLimit and 8,682 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 1 day, but it should give a representative sample across all validators.
+Between Jan 5-6, 2023, Block Logic dropped 20,891 transactions. 12,209 were dropped for `WouldExceedBlockMaxLimit` and 8,682 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 1 day, but it should give a representative sample across all validators.
 
 These totals are notably smaller that last August (see data further below). QUIC was not yet enabled in August, so I think the spam problem was much worse then.
 
