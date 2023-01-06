@@ -12,7 +12,7 @@ end
 
 class TX
   attr_reader :log_string, :slot, :account_keys, :writable_accounts, :tx_cost,
-              :instructions
+              :instructions, :log_line
 
   def initialize(log_line)
     @log_line = log_line
@@ -34,8 +34,10 @@ class TX
                .between('bpf_execution_cost:', ', is')
                .strip
 
-    @instructions = @log_line
-                    .between('instructions: [', '] }), message_hash:')
+    instr = @log_line .between('instructions: [', '] } }), message_hash:')
+    instr = @log_line .between('instructions: [', '] }), message_hash:') if instr.nil?
+    
+    @instructions = instr
                     .strip
                     .split('CompiledInstruction ')
     # @transaction = @log_line.between('')
@@ -62,8 +64,11 @@ File.foreach(input_file) do |line|
   # next unless line.include?('WouldExceedAccountMaxLimit')
   # puts line
   # puts ''
+  next if line.nil?
 
   tx = TX.new(line)
+  # puts tx.log_line
+  # puts ''
   tx.parse
 
   # Update hot_accounts

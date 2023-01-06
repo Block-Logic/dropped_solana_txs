@@ -3,6 +3,117 @@ This contains log file data of Solana transactions dropped from my validator. I 
 
 Each TX was dropped because it  `WouldExceedBlockMaxLimit` or `WouldExceedAccountMaxLimit` in the current block. You can will see the "hot accounts" & "hot programs" in these files.
 
+Between Jan 5-6, 2023, Block Logic dropped 20,891 transactions. 12,209 were dropped for WouldExceedBlockMaxLimit and 8,682 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 1 day, but it should give a representative sample across all validators.
+
+These totals are notably smaller that last August (see data further below). QUIC was not yet enabled in August, so I think the spam problem was much worse then.
+
+Grab data files:
+- dropped_txs_20220808.txt.zip from https://tritononelimited.box.com/s/g7erdarsl3c4r3wa7qqsqnidvfwm78e5
+
+From the file `dropped_txs.txt`, I see the following hot accounts & programs with the most dropped transactions:
+
+CORRELATION, NOT CAUSATION!
+
+```
+HOT WRITABLE ACCOUNTS:
+GHsWvxp6KJ3Yr8HH5L4pbHkC1YMGk8FzMknsYo1kzzZv => 6296
+A9yRKSx8SyqNdCtCMUgr6wDXUs1JmVFkVno6FcscSD6m => 6296
+5F2yj13thTvdTaNdMvxgsczPRXfbqVd7tr13bJSFg1W7 => 6296
+D9dojzvwJGs4q3Cx8ytvD8kWVVZszoVKvPZEZ5D8PV1Y => 6296
+8PhnCfgqpgFM7ZJvttGdBVMXHuU4Q23ACxCvWkbs1M71 => 6296
+8BjvcgtwT5rdaypEMZFAA35gHeRT992aPFr4dwdcLf1v => 6296
+5BsukuACaQcjVu9XSZ8PP3BN9pBxxtZjQELxosC4Ucyx => 3985
+661Hs8eHNKfRF5vUF8dX7mMLhRNVNGXcygWPRPtgYRcd => 3985
+B4kvik9yEXTJ1UScDUqTxfvhnHUkfChv5pF6zNSyEraQ => 3985
+G7mw1d83ismcQJKkzt62Ug4noXCjVhu3eV7U5EMgge6Z => 3985
+9RfZwn2Prux6QesG1Noo4HzMEBv3rPndJ2bN2Wwd6a7p => 3808
+7qbRF6YsyGuLUVs6Y1q64bdVrfe4ZcUUz1JRdoVNUJnm => 3808
+BVNo8ftg2LkkssnWT4ZWdtoFaevnfD6ExYeramwM27pe => 3808
+EW6eXGqTfq6hMmrBRDxTijL8iki5nBbbFRt7KgbqeZdG => 3803
+9MFtooE7VrHtf8sMNv6RYUBceErGtoCXsVojvDZmCNg6 => 3345
+Frwr9CbvEXLorsVB4q652tqxaMSER94FNrt1MiLfLkkY => 3345
+45WHweWfvt1n17LTVcRuLAHrV8HYwXNpjQks69fe7urx => 3345
+6N618nNabD83sMrNj8GpMAHq6WKzufiruiyi2eMHFmPn => 3345
+BaronsRTzAohubvj8Pug51Z4YcN19ConcabyoK3c6vnw => 3201
+9fK6W8gaHL1wxUJqgKqCKXcQ8LEUst5CpMRZ939wygpQ => 3201
+6kLBwjmhUeVjBSJj1kSyvjL8y3F8ziE4iRkud146TmFr => 3176
+4ba1AsNw9gdHkWWArvz4zBErNrMDVZHny1AdUkm9Yv2n => 2729
+5P6n5omLbLbP4kaPGL8etqQAHEx2UCkaUyvjLDnwV4EY => 2729
+HggXczDfUVQY9BrZ4whryvjbyG3sTUUxmphApSS481gy => 2729
+DoPUJXzG6Q7TwoxXJ1PtETqCUDfovpHLhwvj737KTmua => 2525
+4JqTBpfysaBqxwTb6FNKfEfzsZTTUXJcjmdwhvBo5CN4 => 2296
+HTsaYAZ5yhpk98Dm3fDKrTueieEDX34ZkUjeacQYoVSV => 2159
+EA5NtnGXFe2zVnoov7gAcntreefhMTqXXTGWNerx41Jm => 2159
+BqnpCdDLPV2pFdAaLnVidmn3G93RP2p5oRdGEY2sJGez => 2159
+8Ks3wPfwMBcKisH5QgTsengF6yCPTTjQpEp5NWHWNXBK => 2159
+
+HOT SIGNERS:
+BaronsRTzAohubvj8Pug51Z4YcN19ConcabyoK3c6vnw => 3201
+EDMGEpKKGKS7nxpu1gjLmuHHWAmvLNy3BZWDxNC3nhAt => 945
+G6EF4Q1mJBZck6BNrMk6xMkCC8Su7GrS1U1HxoRW5hAV => 817
+PEN1Scuoo9m7dGGXTo8ES9kUNFUpQGC4yhjsX9xDqVG  => 607
+PEN1S2D3X1FnY1jvsLHXqnY397yYEQVWmJpLVzzfK9V  => 582
+Fsb16JMXAWLML5PTLKVh5Lg1xviVB6ah5p7YYcJEw3g2 => 566
+YomamaQKTDXQysGXUyvhY6o1sJZCTXzmKpSYsDyk4UM  => 561
+M1LADYbrGp4NRCY5nGXEjwePNgi2fo45T4RYobErPiq  => 551
+Chaos7msYNBqSaDctus3jPm7ANnwTLC8BDJmKiZhePWk => 523
+6hXVxKZ2LaeWVc3SMashxgAUeqX8PcdJo2fD5viYsLYd => 460
+277Xi9qxS7HtewZnXtETX7WmNNeJjcsDWErVnTd5haoi => 374
+HxQwiMCJaStYWAJfoqKhoLcjmryff2mwbjhkca69GvU1 => 320
+EfaedeX5aRiZbR3qusCezvtuwsNB2JmgBD7JQXjEzH6p => 319
+ANqcTpo8qNEXiCxwr7DBBCrP69QLEFyLpLN6ybY9gVpJ => 298
+27oVRZp83qjveDDjLumomimtW93fmyDJahz3q4oT3xpz => 286
+7Fb53kqkqNSKizyDNt3sZF1gjNEziBWdE6U2Z7XkTuqe => 265
+ENiqXo7bBWkemB3FtKnt6eNRkrouRKu7HhGTqxpUndGH => 135
+8JfPbroaxRsVHnzrUE7V7KpjQUhQLsPs54qp479caqb8 => 135
+CMxukMpUgsD9GSedAqrRG2EJ5rnbwb4HLPHpMCk27HqC => 130
+346xcdYqh5T7AgWiBSGvRFqXW5MrwCycPUVnqUbjpiz8 => 116
+5dDyfdy9fannAdHEkYghgQpiPZrQPHadxBLa1WsGHPFi => 109
+FrmHRaEz1g1RpYwH46t6KjpWDZkAxbqKyhUf5Fae3V3d => 101
+JTmFx5zX9mM94itfk2nQcJnQQDPjcv4UPD7SYj6xDCV  => 96
+9doNJz52PMd8bi3FKRV9gfXa5nXLDjoW1SBVMbmAuuSh => 94
+31Sof5r1xi7dfcaz4x9Kuwm8J9ueAdDduMcme59sP8gc => 85
+5nM1CTQwKXFZo5yJYC8J1pgj32JW6Fx8DpQAtPZ8aiLw => 79
+Dissentingmc8qH6PVQnTss3tpeCyP6DKPzeZuEEVQqS => 70
+Cy7J9Y6GZB3Jhj6xFnSAPs3VNPZhWoFVmYaA6hERr4vC => 68
+skyPbXK9B9f4o5Cz9JDMpw4RCxaLKhe1NsqbQ1sQdcZ  => 67
+6hyuGqKQyhAEipjtaquiNHfd1dVjrNT3FzzanXurbK4W => 66
+
+HOT PROGRAMS:
+ComputeBudget111111111111111111111111111111  => 11649
+JUP4Fb2cqiRUcaTHdrPC8h2gNsA2ETXiPDD33WcGuJB  => 6574
+Vote111111111111111111111111111111111111111  => 5437
+TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA  => 4974
+EN1GMAXbcQF3ucku4wpxE45CKUaoBD3yiutrFqNfLfK7 => 2824
+11111111111111111111111111111111             => 2668
+whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc  => 2236
+ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL => 2170
+srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX  => 1906
+675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8 => 1330
+cjg3oHmg9uuPsP8D6g29NWvhySJkdYdAo9D25PRbKXJ  => 1167
+F1ZY6nXjLkBBR69ozgQfVmhkT9WYuNGenJb7FA8shqEK => 976
+FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH => 609
+MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr  => 574
+cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ  => 494
+M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K  => 488
+EvocationV9G8ZTWXPa9QoVsJDmEeGdqk8pxPAt8ApJf => 322
+9AyUhsKo3MwmPAuM6yT1cPvq3H6rHB2ycFi11JeVuqKP => 298
+EewxydAPCCVuNEyrVN68PuSYdQ7wKn27V9Gjeoi8dy3S => 298
+CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK => 218
+9W959DqEETiGZocYWCQPaJ6sBmUzgfxXfqGeTEdp3aQP => 218
+JUP3c2Uh3WA4Ng34tw6kPd2G4C5BB21Xo36Je1s32Ph  => 202
+FcfzrnurPFXwxbx332wScnD5P86DwhpLpBbQsnr6LcH5 => 176
+SSwpkEEcbUqx4vtoEByFjSkhKdCT862DNVb52nZg1UZ  => 145
+GDDMwNyyx8uB6zrqwBFHjLLG3TBYk2F8Az4yrQC5RzMp => 100
+5xcBkS1k1pWErFjakTJjjMZReF8iErkWq3HCykrNwoT9 => 95
+7K3UpbZViPnQDLn2DAM853B9J5GBxd1L1rLHy4KqSmWG => 94
+SW1TCH7qEPTdLsDHRgPuMQjbQxKdH2aBStViMFnt64f  => 94
+KeccakSecp256k11111111111111111111111111111  => 94
+dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH  => 89
+```
+
+================================================================================
+
 Between August 7-8, 2022, Block Logic dropped 1,277,075 transactions. 143,474 were dropped for `WouldExceedBlockMaxLimit`, and 1,133,601 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 1 day, but it should give a representative sample across all validators. 
 
 Grab data files:
