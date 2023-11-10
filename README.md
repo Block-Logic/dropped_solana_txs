@@ -5,8 +5,10 @@ Between Nov 9-10, 2023, Block Logic dropped 792,165 transactions. 639,951 were d
 
 Here's the deal: I drop the data, and you analyze the data. Grab the data file from https://tritononelimited.box.com/s/i0p6otgl8xh4c6mxc5v7wnlqaascou8u
 
-I see the following hot accounts & programs with the most dropped transactions:
+CORRELATION, NOT CAUSATION!
 
+I see the following hot accounts & programs with the most dropped transactions:
+```
 HOT WRITABLE ACCOUNTS:
 7qbRF6YsyGuLUVs6Y1q64bdVrfe4ZcUUz1JRdoVNUJnm => 101740
 9RfZwn2Prux6QesG1Noo4HzMEBv3rPndJ2bN2Wwd6a7p => 101739
@@ -102,6 +104,7 @@ PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY  => 9786
 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin => 7763
 5k8DQovpeT59yaHXQ35LyeiAkbfMfcoLucCHw32QuiKF => 6933
 EewxydAPCCVuNEyrVN68PuSYdQ7wKn27V9Gjeoi8dy3S => 6897
+```
 
 ================================================================================
 
