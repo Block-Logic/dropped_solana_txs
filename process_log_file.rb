@@ -150,3 +150,5 @@ slot_stats.each do |ss|
   puts ss.inspect
 end
 puts ''
+puts `cat #{input_file} | grep WouldExceedBlockMaxLimit | wc -l` + ' WouldExceedBlockMaxLimit'
+puts `cat #{input_file} | grep WouldExceedAccountMaxLimit | wc -l` + ' WouldExceedAccountMaxLimit'
