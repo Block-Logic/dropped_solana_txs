@@ -7,8 +7,11 @@ Download the raw data file. Heads-up! That's a 3.2GB file!
 https://blocklogicllc.box.com/s/cyi6jihwoi70rjttsy31c3njjqrx9hrd 
 
 Votes Only:
+
 Hot Accounts: https://blocklogicllc.box.com/s/hvu9wf0a1jexwfmgv80q7aty9uxhd82r
+
 Hot Signers: https://blocklogicllc.box.com/s/3k81e5mfn5obsmzmynaaqncln67lx3tn
+
 Raw data: https://blocklogicllc.box.com/s/720ppeftipsmlarrmkrxwq71tfu3r9h6 (245 MB)
 
 CORRELATION, NOT CAUSATION!
