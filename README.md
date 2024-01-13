@@ -1,9 +1,118 @@
 # dropped_solana_txs
 This contains log file data of Solana transactions dropped from my validator. I am providing this information to help application developers who are curious to know why their TXs might be dropped. Each TX was dropped because it  `WouldExceedBlockMaxLimit` or `WouldExceedAccountMaxLimit` in the current block.
 
+On Jan 13, 2024, during the previous two day window, Block Logic dropped 4,124,445 transactions. 4,093,242 were dropped for `WouldExceedBlockMaxLimit`, and 31,203 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 2 days, but it should give a representative sample across all validators.
+
+Download the raw data file. Heads-up! That's a 3.2GB file!
+https://blocklogicllc.box.com/s/cyi6jihwoi70rjttsy31c3njjqrx9hrd 
+
+CORRELATION, NOT CAUSATION!
+
+I see the following hot accounts & programs with the most dropped transactions:
+
+```
+HOT WRITABLE ACCOUNTS:
+FpCMFDFGYotvufJ7HrFHsWEiiQCGbkLCtwHiDnh7o28Q => 276144
+6mQ8xEaHdTikyMvvMxUctYch6dUjnKgfoeib2msyMMi1 => 276143
+AQ36QRk3HAe6PHqBCtKTQnYKpt2kAagq9YoeTqUPMGHx => 276143
+4VNz2txLqQEgZ1rHzySmypVw8w1K5vsKgu6GVXnHggkD => 187162
+B88btbZn1Wc6EPbYEtBSZ3T3SC44G1Byo2ESHMe8YkAv => 146998
+86eq4kdBkUCHGdCC2SfcqGHRCBGhp2M89aCmuvvxaXsm => 135021
+FX5PBDb4nVTs4f9dSkUsj55rEYrCkBs9e7xZpDHqDeVM => 135021
+6Nij2pGdpgd6EutLAtdRwQoHaKKxhdNBi4zoLgd9Yuaq => 135021
+FbQYjLEq1vNCszmxmxZDoFiy9fgyfdPxzt9Fu5zk5jJ4 => 135021
+ELFYDkPYWBopH5Msm2cbA2ueByCXEKpzKWanv1kZC9L2 => 135021
+2QdhepnKRTLjjSqPL1PtKNwqrUkoLee5Gqs8bvZhRdMv => 133833
+E2BcoCeJLTa27mAXDA4xwEq3pBUcyH6XXEHYk4KvKYTv => 133827
+4d35yC7C8zhCDec7JbPptL9SEb4NUddKHxURgmvD8hfo => 133827
+4fEjbMXTet3w8qhScPmT6X79ypagRydKLHPqcGsrhcmP => 133763
+53EkU98Vbv2TQPwGG6t2asCynzFjCX5AnvaabbXafaed => 128935
+DrRd8gYMJu9XGxLhwTCPdHNLXCKHsxJtMpbn62YqmwQe => 128935
+FwWV8a193zZsYxaRAbYkrM6tmrHMoVY1Xahh2PNFejvF => 128935
+FGYgFJSxZTGzaLwzUL9YZqK2yUZ8seofCwGq8BPEw4o8 => 128935
+EVGW4q1iFjDmtxtHr3NoPi5iVKAxwEjohsusMrinDxr6 => 128935
+BmKuiSYs91eP8cn8PTD2eue1vVmqfZq2ipg4WQknY23q => 116030
+FzMQ1s9vQs4v6wyjVoVTFoDBJX2Qjr5ZsDGi1SA8a8hy => 116030
+71GHcjkwmtM7HSWBuqzjEp96prcNNwu1wpUywXiytREU => 116030
+AtpUocL94CzYR1tZouFpo76QeGsUMH7kSqicaTNy7Lvz => 116030
+AczCqF64dSgTjmREcaCSB7eq561frTvSeJ7uLrW37QWG => 116030
+9z9VTNvaTpJuwjn4LSnjHwZgUR9iGuy59BwXTNbxRF6s => 113274
+EkdR2ZR4FenNP5oCMdXgBmMGpiFzWw22xB75kvUznb2q => 110216
+FoSDw2L5DmTuQTFe55gWPDXf88euaxAEKFre74CnvQbX => 108670
+Cvf6b3eKjZbYMzwQyFsLeMjx9Hpo7itEJ6tvrnPRmGLn => 108665
+GEarArxgKL19JxihPHmsSQdWajZWqyitsgf7oUht61Nb => 108664
+FL2LiAWFivEjRoYMxVm4rw57shKadqJZFw7sjag5TPrq => 108468
+
+HOT SIGNERS:
+4VNz2txLqQEgZ1rHzySmypVw8w1K5vsKgu6GVXnHggkD => 187162
+7EoEruhTPr6dVa4NHby5moPAyp8hNaXoV8KVddN5gWMa => 96490
+31Sof5r1xi7dfcaz4x9Kuwm8J9ueAdDduMcme59sP8gc => 56948
+9VFVuLnYkJ2Gyb79FNyBio4e4jciKefAH3BesCiuPxKr => 55448
+7Xd1GmrFMDnpejLeDVhQkEXgB1K18qez6Zho6LYoY4KZ => 50232
+Eoi8TRm5sJZ4SHenpZYQCDzWMx4sdHYKNMGhXr1FAZYK => 44276
+9tWvfa7dXQrNqbiHgA8pXPKAiVYSHGnVDZuZUtup4FwT => 40786
+3T1fQuahAAwNGLoVdbLLviJyMVetsLt1KqShWSnFEtS4 => 38030
+7rhxnLV8C77o6d8oz26AgK8x8m5ePsdeRawjqvojbjnQ => 37389
+CmwPTro4ogHPhuG9Dozx1X7KiATNudF1rkem3BQmuPn7 => 36355
+HanJiSCHzC1DybeXxRrMzGiD5rY9WAXT6vLtYfqRPNgo => 34849
+4CDZMJptok1CVrzrxt4nmB2AgiG3EGjQh25svjoKbfk5 => 34205
+FMyhZGgD6QXoMpKdxTLJVpunWUpcvELEmMQihqHmwTjp => 29951
+DgAK7fPveidN72LCwCF4QjFcYHchBZbtZnjEAtgU1bMX => 29195
+8Vb1eg2RvAMkqN7uHACBksLDiNhkzrev8CGhtzzDLTrJ => 28922
+ALNRkS27Gg11jsAuur2z3hXgvH8C5fUJDse6i1F5PG6t => 26908
+14H381RYPRuq5TUFKTUJ2wsdFAo2mVbY4MwokicVHoEQ => 26784
+9oKXR4zzmKzW9hM4gkxSmzd1KEyBxHrrATRk5poZdyH1 => 25097
+oL2QNZZ9yZh38nqfhuomPAi7WxHvfNJm2Y7XsvBPHep  => 24793
+DGE1XE154o4zEmfEu3XcbVvjY4B51vZT1A4vs8fZWcah => 23102
+BANKMANniNxUxaSKXexc6UCBupRWktmJWDrWSBdZATRT => 22875
+35V85aqyssnda35TYsjgd45vTVuK8swuzsht59LNNuDU => 22569
+4mfHYmghgJ6QsrzwnBzdB6631sq3hQMeuZTPcuj1zZj8 => 22359
+NhiBZFrVdmwpsGpe13NqiE9922xsxTvuAnVWfJULBjx  => 21958
+7eTybsAgCgYFrch4S51gYeFNTGvKA576rGAdSR8jsCAe => 21935
+Fsb16JMXAWLML5PTLKVh5Lg1xviVB6ah5p7YYcJEw3g2 => 21323
+NhiLaJ63BbechNdRnsnS57aA1bxh9eNfRDmnXNds6ra  => 21008
+pUEsyy8qH5jH6kYJzsWkM61wSkE8QpcRLs9fhbsMHMK  => 19956
+GubTBrbgk9JwkwX1FkXvsrF1UC2AP7iTgg8SGtgH14QE => 19903
+CUZEHEtV3wukNi6ULHdXy6WRT98hzPRHpweVFnT9EkCu => 19312
+
+HOT PROGRAMS:
+ComputeBudget111111111111111111111111111111  => 2364507
+Vote111111111111111111111111111111111111111  => 1272315
+JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4  => 747322
+TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA  => 704497
+11111111111111111111111111111111             => 669287
+ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL => 384254
+675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8 => 379029
+JUP4Fb2cqiRUcaTHdrPC8h2gNsA2ETXiPDD33WcGuJB  => 269369
+MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr  => 240395
+FsJ3A3u2vn5cTVofAjvy6y5kwABJAqYWpe4975bi2epH => 224269
+srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX  => 193229
+metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s  => 183917
+cjg3oHmg9uuPsP8D6g29NWvhySJkdYdAo9D25PRbKXJ  => 183501
+BGUMAp9Gq7iTEuizy4pqaxsTyUCBK68MDfK752saRPUY => 161094
+whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc  => 121410
+GDDMwNyyx8uB6zrqwBFHjLLG3TBYk2F8Az4yrQC5RzMp => 112394
+SAGEqqFewepDHH6hMDcmWy7yjHPpyKLDnRXKb3Ki8e6  => 94032
+auth9SigNpDKz4sJJ1DfCTuZrZNSAgh9sFD3rboVmgg  => 75893
+ZETAxsqBRek56DhiGXrn75yj2NHU3aYUnxvHXpkf3aD  => 69366
+dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH  => 68208
+SW1TCH7qEPTdLsDHRgPuMQjbQxKdH2aBStViMFnt64f  => 59313
+PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY  => 58788
+CMZYPASGWeTz7RNGHaRJfCq2XQ5pYK6nDvVQxzkH51zb => 55945
+9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin => 39236
+8WYurfHcPncNYmHFk1STApXLMR8CYHdVpRHCe6qTGBL6 => 37490
+Cigyu5krNwuTdCYHbJ9YiUyVcyw6agXySQ83zgiFcatY => 36355
+KeccakSecp256k11111111111111111111111111111  => 33734
+HobbyQZpigeHQgPG2tnsez2E8ZKtL5DGd6AYbwVvkBnf => 29363
+LoanghCQGdUD7pSkqfagJ9Kdm6kgdE6CNpxgAxvvmTu  => 24621
+DqhtFVXHQJ8mfHpMZ3rkYzCXrnX9U1We2L7CcdxU3EMb => 24257
+```
+
+================================================================================
+
 On Dec 7, 2023, during a two hour window, Block Logic dropped 218,438 transactions. 218,096 were dropped for `WouldExceedBlockMaxLimit`, and 342 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 2 hours, but it should give a representative sample across all validators.
 
-Here's the deal: I drop the data, and you analyze the data. Grab the data file from
+Here's the deal: I drop the data, and you analyze the data. Grab the raw data file from
 
 https://blocklogicllc.box.com/s/4p6guiehd44kxwsacuandm7hjmcqfaue
 

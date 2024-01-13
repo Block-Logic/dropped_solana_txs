@@ -20,27 +20,36 @@ class TX
 
   def parse
     @slot = @log_line
-            .between('slot', ', t')
+            .between('slot', ',')
             .strip
 
     @account_keys = @log_line
-                    .between('account_keys: [', '], r')
+                    .between('account_keys: [', ']')
                     .split(', ')
 
     @writable_accounts = @log_line
-                         .between('writable_accounts: [', '], s')
+                         .between('writable_accounts: [', ']')
                          .split(', ')
-    @tx_cost = @log_line
-               .between('bpf_execution_cost:', ', is')
-               .strip
 
-    instr = @log_line .between('instructions: [', '] } }), message_hash:')
-    instr = @log_line .between('instructions: [', '] }), message_hash:') if instr.nil?
+    @tx_cost = @log_line
+               .between('bpf_execution_cost:', ', ')
+               .strip
+               .to_i rescue 0
+
+    instr = @log_line.between('instructions: [', '] } }), message_hash:')
+    instr = @log_line.between('instructions: [', '] }), message_hash:') if instr.nil?
     
     @instructions = instr
                     .strip
                     .split('CompiledInstruction ')
     # @transaction = @log_line.between('')
+    return true
+  rescue StandardError => e
+    puts @log_line
+    puts e.message
+    puts e.backtrace
+    puts ''
+    return false
   end
 end
 
@@ -69,15 +78,18 @@ File.foreach(input_file) do |line|
   tx = TX.new(line)
   # puts tx.log_line
   # puts ''
-  tx.parse
+  parsed = tx.parse
+  next unless parsed
 
   # Update hot_accounts
+  # next if tx.account_keys.nil?
   tx.account_keys.each do |wa|
     hot_accounts[wa] = 0 if hot_accounts[wa].nil?
     hot_accounts[wa] += 1
   end
 
   # Update hot writable account
+  # next if tx.writable_accounts.nil?
   tx.writable_accounts.each do |wa|
     hot_accounts_writable[wa] = 0 if hot_accounts_writable[wa].nil?
     hot_accounts_writable[wa] += 1
@@ -106,7 +118,7 @@ File.foreach(input_file) do |line|
 
   slot_stats[tx.slot] = {} if slot_stats[tx.slot].nil?
   slot_stats[tx.slot][:tx_cost] = 0 if slot_stats[tx.slot][:tx_cost].nil?
-  slot_stats[tx.slot][:tx_cost] += tx.tx_cost.strip.to_i
+  slot_stats[tx.slot][:tx_cost] += tx.tx_cost
   # Write out the slot_stats
   # puts tx.instructions.inspect
   # puts slot_stats.inspect
@@ -150,5 +162,5 @@ slot_stats.each do |ss|
   puts ss.inspect
 end
 puts ''
-puts `cat #{input_file} | grep WouldExceedBlockMaxLimit | wc -l` + ' WouldExceedBlockMaxLimit'
-puts `cat #{input_file} | grep WouldExceedAccountMaxLimit | wc -l` + ' WouldExceedAccountMaxLimit'
+puts `cat #{input_file} | grep WouldExceedBlockMaxLimit | wc -l`.chomp + ' WouldExceedBlockMaxLimit'
+puts `cat #{input_file} | grep WouldExceedAccountMaxLimit | wc -l`.chomp + ' WouldExceedAccountMaxLimit'
