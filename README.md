@@ -3,7 +3,7 @@ This contains log file data of Solana transactions dropped from my validator. I 
 
 On Jan 13, 2024, during the previous two day window, Block Logic dropped 4,124,445 transactions. 4,093,242 were dropped for `WouldExceedBlockMaxLimit`, and 31,203 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 2 days, but it should give a representative sample across all validators.
 
-Download Fies:
+Download Files:
 
 Hot Accounts CSV: https://blocklogicllc.box.com/s/91czzqooo3959w0oazz4v55ru6npd0y5
 
