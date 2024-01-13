@@ -3,14 +3,19 @@ This contains log file data of Solana transactions dropped from my validator. I 
 
 On Jan 13, 2024, during the previous two day window, Block Logic dropped 4,124,445 transactions. 4,093,242 were dropped for `WouldExceedBlockMaxLimit`, and 31,203 were dropped for `WouldExceedAccountMaxLimit`. That's only 1 validator for 2 days, but it should give a representative sample across all validators.
 
-Download the raw data file. Heads-up! That's a 3.2GB file!
-https://blocklogicllc.box.com/s/cyi6jihwoi70rjttsy31c3njjqrx9hrd 
+Download Fies:
+
+Hot Accounts CSV: https://blocklogicllc.box.com/s/91czzqooo3959w0oazz4v55ru6npd0y5
+
+Hot Signers CSV: https://blocklogicllc.box.com/s/pgqgqqz23w8m2ad734glaqomxdb0os85
+
+Raw data file. Heads-up! That's a 3.2GB file! https://blocklogicllc.box.com/s/cyi6jihwoi70rjttsy31c3njjqrx9hrd 
 
 Votes Only:
 
-Hot Accounts: https://blocklogicllc.box.com/s/hvu9wf0a1jexwfmgv80q7aty9uxhd82r
+Hot Accounts CSV: https://blocklogicllc.box.com/s/hvu9wf0a1jexwfmgv80q7aty9uxhd82r
 
-Hot Signers: https://blocklogicllc.box.com/s/3k81e5mfn5obsmzmynaaqncln67lx3tn
+Hot Signers CSV: https://blocklogicllc.box.com/s/3k81e5mfn5obsmzmynaaqncln67lx3tn
 
 Raw data: https://blocklogicllc.box.com/s/720ppeftipsmlarrmkrxwq71tfu3r9h6 (245 MB)
 
