@@ -1,6 +1,8 @@
 # Usage:
 # ruby process_log_file.rb [Uncompressed log file]
 
+require 'csv'
+
 input_file = ARGV[0]
 
 # Monkey Patch String Class
@@ -157,10 +159,27 @@ hot_programs.sort_by(&:last).reverse[0..29].to_h.each do |k,v|
   puts "#{k.ljust(44, ' ')} => #{v}"
 end
 puts ''
-puts 'SLOT STATS:'
-slot_stats.each do |ss|
-  puts ss.inspect
-end
-puts ''
+# puts 'SLOT STATS:'
+# slot_stats.each do |ss|
+#   puts ss.inspect
+# end
+# puts ''
 puts `cat #{input_file} | grep WouldExceedBlockMaxLimit | wc -l`.chomp + ' WouldExceedBlockMaxLimit'
 puts `cat #{input_file} | grep WouldExceedAccountMaxLimit | wc -l`.chomp + ' WouldExceedAccountMaxLimit'
+
+# Write CSV Files
+# Hot Accounts
+CSV.open('hot_accounts.csv', 'wb') do |csv|
+  csv << ['Address', 'Count']
+  hot_accounts.sort_by(&:last).reverse.each do |k,v|
+    csv << [k, v]
+  end
+end
+
+# Hot Signers
+CSV.open('hot_signers.csv', 'wb') do |csv|
+  csv << ['Address', 'Count']
+  hot_signers.sort_by(&:last).reverse.each do |k,v|
+    csv << [k, v]
+  end
+end
