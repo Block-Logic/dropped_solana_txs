@@ -106,6 +106,7 @@ File.foreach(input_file) do |line|
   # puts 'INSTRUCTIONS:'
   tx.instructions.each do |i|
     next if i == ''
+    next unless i.include?('program_id_index')
 
     # puts i
     # puts ''
@@ -116,6 +117,13 @@ File.foreach(input_file) do |line|
     unless programs_seen.include?(program_id)
       programs_seen << program_id
     end
+  rescue StandardError => e
+    puts e.message
+    puts e.backtrace
+    puts ''
+    puts line
+    puts ''
+    break
   end
 
   slot_stats[tx.slot] = {} if slot_stats[tx.slot].nil?
